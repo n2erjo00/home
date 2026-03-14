@@ -1,0 +1,63 @@
+@font-face {
+	font-family: 'Press Start 2P';
+	src:
+		url('./PressStart2P-Regular.woff2') format('woff2'),
+		url('./PressStart2P-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	/* Backgrounds */
+	--background-default: light-dark(#f0f0f0, #0d0d1a);
+	--background-alt: light-dark(#e0e0e8, #1a1a33);
+	--box-background-default: light-dark(#ffffff, #0f1e3c);
+	--box-inner-background-default: light-dark(#f8f8ff, #0a1428);
+	--navbar-bg: light-dark(#fcfcfc, #0f1e3c);
+	--footer-bg: light-dark(#fcfcfc, #0f1e3c);
+
+	/* Borders */
+	--border-default: light-dark(#ccccff, #3a3aff);
+	--border-light: light-dark(#1a1a1a, #4444ff);
+	--border-dark: light-dark(#111188, #000077);
+
+	/* Text */
+	--text-default: light-dark(#1a1a33, #e8e8f0);
+	--text-dim: #4F4F75;
+	--font-primary: 'Press Start 2P', var(--font-primary-fallback, sans-serif);
+	--font-size-base: 16px;
+	--font-size-lg: 1.125rem;
+	--font-size-md: 1rem;
+	--font-size-sm: 0.875rem;
+	--font-size-xs: 0.75rem;
+	--font-size-2xs: 0.625rem;
+	--font-size-h1: clamp(2em, 6vw, 4.5em);
+	--font-size-h2: clamp(1em, 3vw, 1.6em);
+
+	/* Accent palette */
+	--yellow: #ffe000;
+	--red: light-dark(#bf3232, #ff4444);
+	--green: light-dark(#0a8938, #0ec450);
+	--blue: #44aaff;
+	--purple: light-dark(#a23ade, #c688e7);
+	--cyan: #00ddee;
+	--black: #212121;
+	--heading-color: light-dark(var(--text-default), var(--yellow));
+	--heading-shadow: 3px 3px 0 light-dark(#dcdcdc, #aa7700);
+
+	/* Spacing scale */
+	--spacing-2xs: 0.5rem;
+	--spacing-xs: 1rem;
+	--spacing-sm: 1.5rem;
+	--spacing-md: 2rem;
+	--spacing-lg: 3rem;
+	--spacing-xl: 4rem;
+
+	/* Container */
+	--container-width: 960px;
+	--gutter: var(--spacing-sm);
+	
+	--card-width: 340px;
+	color-scheme: light dark;
+}

@@ -1,0 +1,39 @@
+.contact-screen {
+	@mixin box;
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.contact-prompt {
+	font-size: var(--font-size-sm);
+	color: var(--heading-color);
+	margin-bottom: var(--spacing-xs);
+	text-shadow: var(--heading-shadow);
+}
+
+.contact-sub {
+	font-size: var(--font-size-xs);
+	color: var(--text-dim);
+	margin-bottom: var(--spacing-md);
+}
+
+.contact-btns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-sm);
+	justify-content: center;
+	margin-bottom: var(--spacing-md);
+}
+
+.contact-credit {
+	font-size: var(--font-size-xs);
+	color: light-dark(var(--text-dim), var(--white));
+}
+
+@mixin media-tablet {
+	.contact-btns {
+		flex-direction: column;
+		align-items: center;
+	}
+}

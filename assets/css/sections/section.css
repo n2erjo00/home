@@ -1,0 +1,27 @@
+.section {
+	background-color: var(--section-background, transparent);
+	padding-block: var(--spacing-xl);
+}
+
+.section-alt {
+	--section-background: var(--background-alt);
+}
+
+.section-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-sm);
+	margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+	text-align: center;
+	text-shadow: var(--heading-shadow);
+	margin-block-end: 0;
+}
+
+.section-deco {
+	color: light-dark(var(--green), var(--yellow));
+	font-size: var(--font-size-h2);
+}

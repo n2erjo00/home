@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Joni Erkkilä - Portfolio</title>
+	<link rel="icon" type="image/png" href="/dist/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/dist/favicon.svg" />
+	<link rel="shortcut icon" href="/dist/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/dist/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="JE" />
+	<link rel="manifest" href="/dist/site.webmanifest" />
+	
+	<link rel="stylesheet" href="/dist/main.css">
+</head>
+<body>
+
+<header class="title-screen" id="home">
+	<div class="cloud cloud-1"></div>
+	<div class="cloud cloud-2"></div>
+	<div class="cloud cloud-3"></div>
+	<div class="cloud cloud-4"></div>
+	<div class="cloud cloud-5"></div>
+    <div class="title-content">
+		<p class="title-eyebrow">WORLD 1-1 &nbsp; ★ ×03 &nbsp; ♥ ×03</p>
+		<h1 class="title-name">JONI ERKKILÄ</h1>
+		<p class="title-role">SOFTWARE DEVELOPER</p>
+		<fieldset class="color-mode">
+			<legend class="color-mode-label">COLOR MODE</legend>
+			<input type="radio" name="color-mode" id="mode-auto" value="mode-auto" checked>
+			<label for="mode-auto" aria-label="AUTO MODE">💡 AUTO MODE</label>
+			<input type="radio" name="color-mode" id="mode-light" value="mode-light">
+			<label for="mode-light" aria-label="LIGHT MODE">☀️ LIGHT MODE</label>
+			<input type="radio" name="color-mode" id="mode-dark" value="mode-dark">
+			<label for="mode-dark" aria-label="DARK MODE">🌙 DARK MODE</label>
+		</fieldset>
+		<div class="hiscore">
+			<span>HI-SCORE</span>
+			<span class="hiscore-val">100000</span>
+		</div>
+	</div>
+</header>
+
+<nav class="nav" aria-label="Main">
+	<div class="nav-inner">
+		<a href="#home" class="nav-logo" aria-label="HOME">&#x2665; HOME</a>
+		<ul class="nav-list">
+			<li>
+				<a href="#about" class="nav-link" aria-label="ABOUT">ABOUT</a>
+			</li>
+			<li>
+				<a href="#skills" class="nav-link" aria-label="SKILLS">SKILLS</a>
+			</li>
+			<li>
+				<a href="#quests" class="nav-link" aria-label="QUESTS">QUESTS</a>
+			</li>
+			<li>
+				<a href="#contact"  class="nav-link" aria-label="CONTACT">CONTACT</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<main>
+	<section class="section" id="about">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-deco" aria-hidden="true">&#x2605;</span>
+				<h2 class="section-title">CHARACTER SELECT</h2>
+				<span class="section-deco" aria-hidden="true">&#x2605;</span>
+			</div>
+
+			<div class="character-screen">
+				<div class="character-left">
+					<div class="avatar-frame">
+						<img src="/dist/avatar.svg" loading="lazy" alt="Mage known as Joni Erkkilä as 8-bit character">
+					</div>
+					<p class="avatar-label">PLAYER 1</p>
+				</div>
+				<div class="character-info">
+					<div class="stat-row"><span class="stat-key">NAME</span><span class="stat-sep">:</span><span class="stat-val">Joni Erkkilä</span></div>
+					<div class="stat-row"><span class="stat-key">CLASS</span><span class="stat-sep">:</span><span class="stat-val">Developer</span></div>
+					<div class="stat-row"><span class="stat-key">LVL</span><span class="stat-sep">:</span><span class="stat-val">99</span></div>
+					<div class="stat-row"><span class="stat-key">EXP</span><span class="stat-sep">:</span><span class="stat-val">10+ YRS</span></div>
+					<div class="stat-row"><span class="stat-key">LOC</span><span class="stat-sep">:</span><span class="stat-val">Finland</span></div>
+					<div class="bio box-inner">
+						<p>A passionate developer who loves building things for the web. When not writing code, found playing board games or doing sports or doing some music.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt" id="skills">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-deco" aria-hidden="true">&#x25B2;</span>
+				<h2 class="section-title">STATS SCREEN</h2>
+				<span class="section-deco" aria-hidden="true">&#x25B2;</span>
+			</div>
+		</div>
+
+		<div class="skills-grid">
+			<div class="skill-category">
+				<h3 class="skill-cat-title">&#x2694; ATTACK</h3>
+				<div class="skill-item">
+					<span class="skill-name">HTML / CSS</span>
+					<div class="skill-bar"><div class="skill-fill fill-red" style="--power: 90%"></div></div>
+					<span class="skill-lv">LV.9</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">JavaScript</span>
+					<div class="skill-bar"><div class="skill-fill fill-red" style="--power: 90%"></div></div>
+					<span class="skill-lv">LV.9</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">React</span>
+					<div class="skill-bar"><div class="skill-fill fill-red" style="--power: 80%"></div></div>
+					<span class="skill-lv">LV.8</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">TypeScript</span>
+					<div class="skill-bar"><div class="skill-fill fill-red" style="--power: 75%"></div></div>
+					<span class="skill-lv">LV.7</span>
+				</div>
+			</div>
+
+			<div class="skill-category">
+				<h3 class="skill-cat-title">&#x2728; MAGIC</h3>
+				<div class="skill-item">
+					<span class="skill-name">PHP</span>
+					<div class="skill-bar"><div class="skill-fill fill-blue" style="--power: 90%"></div></div>
+					<span class="skill-lv">LV.9</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">WordPress</span>
+					<div class="skill-bar"><div class="skill-fill fill-blue" style="--power: 90%"></div></div>
+					<span class="skill-lv">LV.9</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">SQL</span>
+					<div class="skill-bar"><div class="skill-fill fill-blue" style="--power: 75%"></div></div>
+					<span class="skill-lv">LV.7</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">Shopify</span>
+					<div class="skill-bar"><div class="skill-fill fill-blue" style="--power: 70%"></div></div>
+					<span class="skill-lv">LV.7</span>
+				</div>
+			</div>
+
+			<div class="skill-category">
+				<h3 class="skill-cat-title">&#x1F6E1; DEFENSE</h3>
+				<div class="skill-item">
+					<span class="skill-name">Humor</span>
+					<div class="skill-bar"><div class="skill-fill fill-green" style="--power: 100%"></div></div>
+					<span class="skill-lv">LV.10</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">Running</span>
+					<div class="skill-bar"><div class="skill-fill fill-green" style="--power: 70%"></div></div>
+					<span class="skill-lv">LV.7</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">Music</span>
+					<div class="skill-bar"><div class="skill-fill fill-green" style="--power: 60%"></div></div>
+					<span class="skill-lv">LV.6</span>
+				</div>
+				<div class="skill-item">
+					<span class="skill-name">Cycling</span>
+					<div class="skill-bar"><div class="skill-fill fill-green" style="--power: 80%"></div></div>
+					<span class="skill-lv">LV.8</span>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<section class="section" id="quests">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-deco" aria-hidden="true">&#x25B2;</span>
+				<h2 class="section-title">QUEST LOG</h2>
+				<span class="section-deco" aria-hidden="true">&#x25B2;</span>
+			</div>			
+		</div>
+		<div class="quests-grid">
+
+			<div class="quest-card">
+				<div class="quest-card-top">
+					<span class="quest-icon">&#x2728;</span>
+					<span class="badge badge-wip blink">ACTIVE</span>
+				</div>
+				<h3 class="quest-title">Evermade 2024–</h3>
+				<p class="quest-desc">WordPress, Shopify and integrations… so many integrations</p>
+				<div class="tags">
+					<span class="tag">HTML</span>
+					<span class="tag">CSS</span>
+					<span class="tag">JavaScript</span>
+					<span class="tag">TypeScript</span>
+					<span class="tag">PHP</span>
+					<span class="tag">WordPress</span>
+					<span class="tag">Shopify</span>
+					<span class="tag">React</span>
+				</div>
+			</div>
+
+			<div class="quest-card">
+				<div class="quest-card-top">
+					<span class="quest-icon">&#x1F6E1;</span>
+					<span class="badge badge-done">COMPLETED</span>
+				</div>
+				<h3 class="quest-title">Liana 2018–2023</h3>
+				<p class="quest-desc">Ecommerce projects as a Full stack developer.</p>
+				<div class="tags">
+					<span class="tag">HTML</span>
+					<span class="tag">CSS</span>
+					<span class="tag">JavaScript</span>
+					<span class="tag">PHP</span>
+					<span class="tag">PostgreSQL</span>
+				</div>
+			</div>
+
+			<div class="quest-card">
+				<div class="quest-card-top">
+					<span class="quest-icon">&#x2694;</span>
+					<span class="badge badge-done">COMPLETED</span>
+				</div>
+				<h3 class="quest-title">Liana 2015–2018</h3>
+				<p class="quest-desc">Honest intern and later Front-end developer doing newsletters and websites.</p>
+				<div class="tags">
+					<span class="tag">HTML</span>
+					<span class="tag">CSS</span>
+					<span class="tag">JavaScript</span>
+					<span class="tag">PHP</span>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="section section-alt" id="contact">
+		<div class="container">
+			<div class="section-header">
+				<span class="section-deco" aria-hidden="true">&#x25B2;</span>
+				<h2 class="section-title">SAVE &amp; CONTINUE</h2>
+				<span class="section-deco" aria-hidden="true">&#x25B2;</span>
+			</div>
+
+			<div class="contact-screen">
+				<p class="contact-prompt">WOULD YOU LIKE TO SAVE YOUR PROGRESS?</p>
+				<div class="contact-btns">
+					<a href="https://github.com/n2erjo00/" class="btn btn-lg btn-ghost" rel="nofollow noopener noreferrer">GITHUB</a>
+					<a href="https://linkedin.com/in/joni-erkkilä-a87216b6" class="btn btn-lg btn-ghost" rel="nofollow noopener noreferrer">LINKEDIN</a>
+				</div>
+				<p class="blink contact-credit">GAME BY JONI ERKKILÄ</p>
+			</div>
+		</div>
+	</section>
+</main>
+
+<footer class="footer">
+	<p>&#x2665; 2026 JONI ERKKILÄ &nbsp;&#x00B7;&nbsp; MADE WITH ♥ AND TOO MUCH COFFEE</p>
+	<p class="footer-score">1UP &nbsp; SCORE: 000100 &nbsp; &#x2605;&#x2605;&#x2605;</p>
+</footer>
+
+</body>
+</html>

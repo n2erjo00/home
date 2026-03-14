@@ -1,0 +1,41 @@
+.color-mode {
+	border: none;
+	display: inline-flex;
+	gap: var(--spacing-xs);
+	flex-direction: column;
+	padding-block-end: var(--spacing-md);
+
+	& input[type="radio"] {
+		@mixin visually-hidden;
+	}
+
+	& label {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		gap: var(--spacing-2xs);
+		position: relative;
+		color: light-dark(var(--black), var(--yellow));
+	}
+
+	& label:hover::before {
+		content: '▶';
+		position: absolute;
+		left: -1.1em;
+	}
+
+	& :checked + label::before {
+		content: '▶';
+		position: absolute;
+		left: -1.1em;
+	}
+
+	& input:focus-visible + label {
+		outline: 2px solid var(--yellow);
+		outline-offset: 2px;
+	}
+
+	& .color-mode-label {
+		@mixin visually-hidden;
+	}
+}

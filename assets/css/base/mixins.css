@@ -1,0 +1,132 @@
+@define-mixin box {
+	background-color: var(--box-background-default);
+	padding: var(--spacing-sm);
+	position: relative;
+	z-index: 0;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 4px;
+		left: 0;
+		border-left: 3px solid var(--border-light);
+		border-right: 3px solid var(--border-light);
+		width: 100%;
+		height: calc(100% - 8px);
+		z-index: -1;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 4px;
+		border-top: 3px solid var(--border-light);
+		border-bottom: 3px solid var(--border-light);
+		width: calc(100% - 8px);
+		height: 100%;
+		z-index: -1;
+	}
+
+	& .box-inner {
+		background-color: var(--box-inner-background-default);
+		border: 2px solid var(--border-dark);
+		box-shadow: inset 1px 1px 0 0 #000;
+		padding: var(--spacing-xs);
+		margin-top: var(--spacing-xs);
+	}
+}
+
+@define-mixin media-tablet {
+	@media screen and (max-width: 768px) {
+		@mixin-content;
+	}
+}
+
+@define-mixin container-left-align {
+	padding-inline-start: max(var(--gutter), calc((100vw - var(--container-width)) / 2 + var(--gutter)));
+	padding-inline-end: var(--gutter);
+	margin-inline-end: var(--spacing-2xs);
+}
+
+@define-mixin visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+@define-mixin color-mode-light {
+	@media (prefers-color-scheme: light) {
+		@mixin-content;
+	}
+	body:has(input[value="mode-light"]:checked) {
+		@mixin-content;
+	}
+}
+
+@define-mixin color-mode-dark {
+	@media (prefers-color-scheme: dark) {
+		@mixin-content;
+	}
+	body:has(input[value="mode-dark"]:checked) {
+		@mixin-content;
+	}
+}
+
+@define-mixin title-screen-dark-mode {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image:
+	    radial-gradient(1px 1px at  8%  12%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 22%  45%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 37%   8%, #cce 0%, transparent 100%),
+		radial-gradient(1px 1px at 51%  72%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 65%  25%, #ccf 0%, transparent 100%),
+		radial-gradient(1px 1px at 78%  58%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 90%  15%, #cce 0%, transparent 100%),
+		radial-gradient(1px 1px at 14%  80%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 43%  93%, #ccf 0%, transparent 100%),
+		radial-gradient(1px 1px at 72%  88%, #fff 0%, transparent 100%),
+		radial-gradient(2px 2px at 30%  30%, #aaf 0%, transparent 100%),
+		radial-gradient(2px 2px at 60%  60%, #aaf 0%, transparent 100%),
+		radial-gradient(1px 1px at  5%  55%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 85%  40%, #cce 0%, transparent 100%),
+		radial-gradient(1px 1px at 50%  50%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 18%  32%, #fff 0%, transparent 100%),
+		radial-gradient(1px 1px at 92%  70%, #fff 0%, transparent 100%);
+	pointer-events: none;
+}
+
+@define-mixin title-screen-light-mode {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(
+		180deg,
+		#87ceeb 0%,
+		#4a90e2 30%,
+		#2171b5 70%,
+		#1a5490 100%
+	);
+	overflow: hidden;
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+}
+
+@define-mixin animation $name, $speed, $iteration, $timing-function: infinite {
+	animation: $name $speed $timing-function $iteration;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+}

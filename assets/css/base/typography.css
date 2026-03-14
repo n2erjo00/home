@@ -1,0 +1,11 @@
+h1 {
+	font-size: var(--font-size-h1);
+	margin-block-end: var(--spacing-md);
+	color: var(--heading-color);
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+	margin-block-end: var(--spacing-md);
+	color: var(--heading-color);
+}

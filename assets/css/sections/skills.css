@@ -1,0 +1,98 @@
+.skills-grid {
+	@mixin container-left-align;
+	display: grid;
+	grid-template-columns: repeat(3, var(--card-width));
+	gap: var(--spacing-md);
+	padding-block-end: var(--spacing-md);
+	overflow-x: auto;
+}
+
+.skill-category {
+	@mixin box;
+	width: var(--card-width);
+}
+
+.skill-cat-title {
+	font-size: var(--font-size-md);
+	color: light-dark(var(--black), var(--yellow));
+	margin-bottom: var(--spacing-sm);
+	border-bottom: 2px solid var(--border-dark);
+	padding-bottom: var(--spacing-2xs);
+}
+
+.skill-name {
+	font-size: var(--font-size-sm);
+	color: var(--text-default);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	grid-column: 1 / -1;
+}
+
+.skill-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--spacing-2xs);
+	margin-bottom: var(--spacing-xs);
+}
+
+.skill-name {
+	font-size: var(--font-size-sm);
+	color: var(--text-default);
+	width: 100%;
+}
+
+.skill-bar {
+	flex: 1;
+	height: 14px;
+	background-color: var(--box-inner-background-default);
+	border: 2px solid var(--border-dark);
+	box-shadow: inset 1px 1px 0 #000;
+	position: relative;
+	min-width: 80px;
+}
+
+@keyframes fillBar {
+	from {
+		width: 0;
+	}
+	to {
+		width: var(--power);
+	}
+}
+
+.skill-fill {
+	background-color: var(--fill-bg, var(--blue));
+	height: 100%;
+	width: var(--power);
+	position: relative;
+	@mixin animation fillBar, 1s, ease-out, both;
+}
+
+.skill-fill::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: repeating-linear-gradient(
+		90deg,
+		rgba(255,255,255,0.15) 0px,
+		rgba(255,255,255,0.15) 4px,
+		transparent 4px,
+		transparent 8px
+	);
+}
+
+.fill-red  {
+	--fill-bg: var(--red);
+}
+
+.fill-green {
+	--fill-bg: var(--green);
+}
+
+.skill-lv {
+	font-size: var(--font-size-xs);
+	color: light-dark(var(--black), var(--yellow));
+	white-space: nowrap;
+}
