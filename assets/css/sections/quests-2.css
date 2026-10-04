@@ -1,0 +1,210 @@
+/*
+ * Super Mario-esque world map.
+ *
+ * Each <li> is a grid cell and its level dot sits at the top centre of the
+ * cell. Paths are drawn with li::after from one dot to the next. Every path
+ * segment only goes right or down, so it is drawn by the li that is further
+ * up/left (the route itself still runs 1 → 7).
+ *
+ * The li elements are deliberately NOT positioned so the story box can be
+ * positioned against the whole map (like the SMW message box).
+ */
+.quest-map {
+	--map-grass: light-dark(#4caf3a, #1f5a2a);
+	--map-grass-tuft: light-dark(#3a8f2c, #18461f);
+	--map-beach: light-dark(#f8d878, #b89c48);
+	--map-outline: #000;
+	--map-path: #f8d878;
+	--map-dot: var(--yellow);
+	--map-dot-active: var(--red);
+	--map-label: #fff;
+
+	--map-col-gap: var(--spacing-sm);
+	--map-row-gap: var(--spacing-md);
+	--map-row-height: 6rem;
+	--map-message-height: 7rem;
+	--dot-size: 1.5rem;
+	--path-size: 6px;
+	position: relative;
+
+	&__list {
+		list-style: none;
+		position: relative;
+		isolation: isolate;
+		max-width: var(--container-width);
+		margin-block-start: var(--spacing-md);
+		margin-inline: max(var(--gutter), calc((100% - var(--container-width)) / 2));
+		padding: var(--spacing-lg) var(--spacing-md) calc(var(--map-message-height) + var(--spacing-md));
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-auto-rows: minmax(var(--map-row-height), auto);
+		gap: var(--map-row-gap) var(--map-col-gap);
+
+		/* Grass with little pixel tufts */
+		background-color: var(--map-grass);
+		background-image:
+			conic-gradient(at 4px 4px, transparent 75%, var(--map-grass-tuft) 0),
+			conic-gradient(at 8px 4px, transparent 75%, var(--map-grass-tuft) 0);
+		background-size: 48px 48px;
+		background-position: 12px 20px, 34px 44px;
+		border: 4px solid var(--map-outline);
+		box-shadow:
+			0 0 0 8px var(--map-beach),
+			0 0 0 12px var(--map-outline);
+		image-rendering: pixelated;
+
+		> li {
+			/* Stack the node and its path in the same grid area */
+			display: grid;
+			grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+			justify-items: center;
+			align-items: start;
+			font-size: var(--font-size-2xs);
+			text-align: center;
+			color: var(--map-label);
+			text-shadow:
+				2px 0 0 #000, -2px 0 0 #000,
+				0 2px 0 #000, 0 -2px 0 #000;
+
+			> * {
+				grid-area: 1 / 1;
+				z-index: 1;
+			}
+
+			/* Path segment */
+			&::after {
+				grid-area: 1 / 1;
+				z-index: 0;
+				filter: drop-shadow(2px 2px 0 var(--map-outline));
+			}
+
+			&:is(:nth-child(1), :nth-child(5), :nth-child(7))::after {
+				content: "";
+				justify-self: start;
+				width: calc(100% + var(--map-col-gap));
+				height: var(--path-size);
+				margin-inline-start: 50%;
+				margin-block-start: calc((var(--dot-size) - var(--path-size)) / 2);
+				background: repeating-linear-gradient(90deg, var(--map-path) 0 var(--path-size), transparent var(--path-size) calc(var(--path-size) * 2));
+			}
+
+			&:is(:nth-child(2), :nth-child(3), :nth-child(6))::after {
+				content: "";
+				width: var(--path-size);
+				height: calc(100% + var(--map-row-gap));
+				margin-block-start: calc(var(--dot-size) / 2);
+				background: repeating-linear-gradient(180deg, var(--map-path) 0 var(--path-size), transparent var(--path-size) calc(var(--path-size) * 2));
+			}
+
+			/* Route: 2,1 → 3,1 → 3,2 → 3,3 → 2,3 → 2,2 → 1,2 */
+			&:nth-child(1) { grid-area: 1 / 2; }
+			&:nth-child(2) { grid-area: 1 / 3; }
+			&:nth-child(3) { grid-area: 2 / 3; }
+			&:nth-child(4) { grid-area: 3 / 3; }
+			&:nth-child(5) { grid-area: 3 / 2; }
+			&:nth-child(6) { grid-area: 2 / 2; }
+			&:nth-child(7) { grid-area: 2 / 1; }
+		}
+	}
+
+	/* Default message when no level is selected */
+	&__start-screen {
+		position: absolute;
+		inset-inline: var(--spacing-md);
+		bottom: var(--spacing-md);
+		height: calc(var(--map-message-height) - var(--spacing-md));
+		display: grid;
+		place-items: center;
+		font-size: var(--font-size-xs);
+		color: #fff;
+		background-color: #000;
+		border: 4px solid #fff;
+		box-shadow: 0 0 0 4px #000;
+		margin-inline: var(--spacing-lg);
+		z-index: 1;
+
+		.quest-map:has(.quest-map__location[open]) & {
+			visibility: hidden;
+		}
+	}
+
+	&__location {
+		&__mark {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--spacing-2xs);
+			list-style: none;
+			cursor: pointer;
+			line-height: 1.6;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
+
+			/* Level dot */
+			&::before {
+				content: "";
+				display: block;
+				width: var(--dot-size);
+				height: var(--dot-size);
+				background-color: var(--map-dot);
+				border: 3px solid var(--map-outline);
+				border-radius: 50%;
+				box-shadow: inset -3px -3px 0 rgb(0 0 0 / 0.25);
+			}
+
+			&:hover::before,
+			&:focus-visible::before {
+				background-color: #fff;
+			}
+
+			&:focus-visible {
+				outline: none;
+				color: var(--yellow);
+			}
+		}
+
+		&[open] &__mark::before {
+			background-color: var(--map-dot-active);
+			@mixin animation questMapBob, 0.6s, step-end, infinite;
+		}
+
+		/* SMW-style message box at the bottom of the map */
+		&__story {
+			position: absolute;
+			inset-inline: var(--spacing-md);
+			bottom: var(--spacing-md);
+			min-height: calc(var(--map-message-height) - var(--spacing-md));
+			z-index: 2;
+			display: grid;
+			align-content: center;
+			padding: var(--spacing-xs);
+			font-size: var(--font-size-xs);
+			line-height: 2;
+			text-align: start;
+			text-shadow: none;
+			color: #fff;
+			background-color: #000;
+			border: 4px solid #fff;
+			box-shadow: 0 0 0 4px #000;
+		}
+	}
+
+	@mixin media-tablet {
+		--map-col-gap: var(--spacing-xs);
+		--map-row-gap: var(--spacing-sm);
+		--map-row-height: 5rem;
+		padding-inline: var(--spacing-xs);
+
+		&::after,
+		& .quest-map__location__story {
+			inset-inline: var(--spacing-xs);
+		}
+	}
+}
+
+@keyframes questMapBob {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-4px); }
+}
