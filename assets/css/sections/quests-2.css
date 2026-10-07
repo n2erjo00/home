@@ -121,6 +121,7 @@
 		border: 4px solid #fff;
 		box-shadow: 0 0 0 4px #000;
 		margin-inline: var(--spacing-lg);
+		padding-inline: var(--spacing-md);
 		z-index: 1;
 
 		.quest-map:has(.quest-map__location[open]) & {
@@ -175,10 +176,7 @@
 			position: absolute;
 			inset-inline: var(--spacing-md);
 			bottom: var(--spacing-md);
-			min-height: calc(var(--map-message-height) - var(--spacing-md));
 			z-index: 2;
-			display: grid;
-			align-content: center;
 			padding: var(--spacing-xs);
 			font-size: var(--font-size-xs);
 			line-height: 2;
@@ -188,6 +186,24 @@
 			background-color: #000;
 			border: 4px solid #fff;
 			box-shadow: 0 0 0 4px #000;
+			
+			> p {
+				margin-block-end: 0;
+			}
+
+			> ul {
+				display: flex;
+				align-items: center;
+				column-gap: calc(var(--spacing-2xs) / 2);
+				flex-wrap: wrap;
+				padding-block-start: var(--spacing-xs);
+
+				> li {
+					&::before {
+						content: "►"
+					}
+				}
+			}
 		}
 	}
 
