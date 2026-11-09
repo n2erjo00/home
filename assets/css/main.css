@@ -10,6 +10,7 @@
 @import './sections/skills.css';
 @import './sections/quests.css';
 @import './sections/contact.css';
+@import './sections/cv.css';
 @import './sections/footer.css';
 @import './components/grid.css';
 @import './components/blink.css';
